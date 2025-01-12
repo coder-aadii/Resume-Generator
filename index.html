@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Resume Generator</h1>
+
+        <!-- Step 1: Select Color Theme -->
+        <div id="theme-selection">
+            <h2>Select Your Resume Color Theme</h2>
+            <select id="theme-dropdown" onchange="loadTemplates()">
+                <option value="">-- Select Theme --</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="black-white">Black and White</option>
+            </select>
+        </div>
+
+        <!-- Step 2: Template Selection -->
+        <div id="template-selection" style="display: none;">
+            <h2>Select a Template</h2>
+            <div id="template-list">
+                <!-- Templates will be dynamically loaded here -->
+            </div>
+        </div>
+
+        <!-- Step 3: User Input Form -->
+        <div id="resume-form" style="display: none;">
+            <h2>Enter Your Details</h2>
+            <form id="resumeForm">
+                <!-- Personal Information -->
+                <h3>Personal Information</h3>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone"><br>
+
+                <!-- Education -->
+                <h3>Education</h3>
+                <label for="degree">Degree:</label>
+                <input type="text" id="degree" name="degree"><br>
+
+                <label for="institution">Institution:</label>
+                <input type="text" id="institution" name="institution"><br>
+
+                <!-- Work Experience -->
+                <h3>Work Experience</h3>
+                <label for="jobTitle">Job Title:</label>
+                <input type="text" id="jobTitle" name="jobTitle"><br>
+
+                <label for="companyName">Company Name:</label>
+                <input type="text" id="companyName" name="companyName"><br>
+
+                <label for="duration">Duration:</label>
+                <input type="text" id="duration" name="duration"><br>
+
+                <!-- Skills -->
+                <h3>Skills</h3>
+                <label for="skills">Skills (comma separated):</label>
+                <input type="text" id="skills" name="skills"><br>
+
+                <!-- Submit Button -->
+                <button type="button" onclick="generateResume()">Generate Resume</button>
+            </form>
+        </div>
+
+        <!-- Step 4: Generated Resume Preview -->
+        <div id="resume-output" style="display: none;">
+            <h2>Your Resume Preview</h2>
+            <div id="resume-preview"></div>
+            <div>
+                <button onclick="downloadPDF()">Download as PDF</button>
+                <button onclick="downloadDOC()">Download as DOC</button>
+            </div>
+        </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
